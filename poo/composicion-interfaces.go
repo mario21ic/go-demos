@@ -17,7 +17,14 @@ type EncryptDecrypter interface {
 
 func main() {
 	g := gopher{animal{"Mario's Gopher"}, 4}
-	g.Encrypt()
+	// g.Encrypt()
+	// g.Decrypt()
+	Print(g)
+}
+
+func Print(m EncryptDecrypter) {
+	// fmt.Println(m.Encrypt())
+	fmt.Println(m.Decrypt("xD"))
 }
 
 type animal struct {
@@ -29,6 +36,10 @@ type gopher struct {
 	legs int
 }
 
-func (g gopher) Encrypt() {
-	fmt.Printf("Encrypt: I'm %s and I'm a %T", g.name, g)
+func (g gopher) Encrypt(b []byte) {
+	fmt.Printf("Encrypt: I'm %s and I'm a %T\n", g.name, g)
+}
+
+func (g gopher) Decrypt(s string) {
+	fmt.Printf("Decrypt: I'm %s and I'm a %T\n", g.name, g)
 }
